@@ -3,10 +3,14 @@
 
 #include <QtCore/qglobal.h>
 
+#if defined(BUILD_SHARED_LIBS)
 #if defined(SOCKSLIB_LIBRARY)
 #define SOCKSLIBSHARED_EXPORT Q_DECL_EXPORT
 #else
 #define SOCKSLIBSHARED_EXPORT Q_DECL_IMPORT
+#endif
+#else
+#define SOCKSLIBSHARED_EXPORT
 #endif
 
 #endif // SOCKSLIB_GLOBAL_H
